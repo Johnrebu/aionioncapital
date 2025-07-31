@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap');
+
+/* ✅ Now add your Tailwind base and other styles below */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* your other CSS follows... */
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --black: #000000;
+  --black1: #1e1e1e;
+  --black2: #373737;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --black: #000000;
+    --black1: #1e1e1e;
+    --black2: #373737;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Optional – Hide scrollbar */
+.scroll-smooth::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .animate-fade-in-down {
+    animation: fadeInDown 0.3s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+

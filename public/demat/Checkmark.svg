@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" viewBox="0 0 55 55">
+  <g id="Group_136" data-name="Group 136" transform="translate(-915 -1108)">
+    <path id="ic_playlist_add_check_24px" d="M23.262,13.087H2v3.544H23.262Zm0-7.087H2V9.544H23.262ZM2,23.718H16.174V20.174H2Zm34.55-7.973L39.208,18.4l-12.385,12.4-7.991-7.973,2.658-2.658,5.333,5.315Z" transform="translate(923.125 1118.195)" fill="#434343"/>
+    <g id="Ellipse_29" data-name="Ellipse 29" transform="translate(915 1108)" fill="none" stroke="#434343" stroke-width="1.5">
+      <circle cx="27.5" cy="27.5" r="27.5" stroke="none"/>
+      <circle cx="27.5" cy="27.5" r="26.75" fill="none"/>
+    </g>
+  </g>
+</svg>
