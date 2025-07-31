@@ -158,26 +158,6 @@ export default function Resources() {
       email: "compliance@aionioncapital.com",
     },
   ];
-  const bankDetail = [
-    {
-      bname: "ICICI BANK LIMITED",
-      accNo: "000905036661",
-      ifsc: "ICIC0000009 ",
-      branch: "Nungambakkam, Chennai",
-    },
-    {
-      bname: "AXIS BANK LIMITED",
-      accNo: "924020068024292",
-      ifsc: "UTIB0003334",
-      branch: "Ashock Nagar,Chennai.",
-    },
-    {
-      bname: "HDFC BANK LIMITED",
-      accNo: "57500001595542",
-      ifsc: "HDFC0000004",
-      branch: " Anna Salai,Chennai.",
-    },
-  ];
   return (
     <div className="items-center gap-16 font-[family-name:var(--font-geist-sans)]">
       <div className="bg-[url('/about/aboutbg.png')] bg-cover bg-center bg-no-repeat">
