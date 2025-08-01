@@ -433,7 +433,7 @@ const Footer: React.FC = () => {
           3rd Floor, Meerlan Towers, No.33, Hanumantha Road, Royapettah, Chennai
           – 600 014
         </div>
-        <div className="flex flex-col md:flex-row justify-between gap-y-1 mt-4">
+        <div className="flex flex-col md:flex-row justify-between gap-y-1 mt-4"> 
           <span>Company PAN: ABACA2285K</span>
           <span>SEBI: INZ000318532</span>
         </div>
