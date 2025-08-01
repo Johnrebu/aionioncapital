@@ -263,7 +263,7 @@ const FooterStyle: React.FC<FooterProps> = ({ header, links }) => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white text-sm px-4 md:px-10 pt-10">
+    <footer className="bg-[#1a1a1a] text-white text-sm px-4 md:px-10 pt-10">
       {/* Logo and App Links */}
       <div className="flex flex-wrap flex-col lg:flex-row justify-center items-center lg:justify-between max-w-[1350px] mx-auto px-6 py-2">
         <Image
@@ -282,7 +282,7 @@ const Footer: React.FC = () => {
               href="https://play.google.com/store/apps/details?id=com.intellectsoftwares.aionioncaptial"
               className="inline-block"
             >
-              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-1 rounded-3xl">
+              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-0 rounded-3xl">
                 <Image
                   src="/footericon/play.svg"
                   alt="google icon"
@@ -303,7 +303,7 @@ const Footer: React.FC = () => {
               href="https://apps.apple.com/us/app/aionion-capital/id6740156959"
               className="inline-block"
             >
-              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-1 rounded-3xl">
+              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-0 rounded-3xl">
                 <AppleIcon
                   className="text-black2 w-[20px] h-[20px]"
                   fontSize="medium"
@@ -358,7 +358,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 pb-6 border-b border-gray-700"></div>
-
       {/* Link Columns */}
       <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-6 max-w-[1350px] mx-auto px-6 py-6 md:py-10">
         {[
@@ -461,7 +460,6 @@ const Footer: React.FC = () => {
           Research Analyst SEBI Registration Number: INH000020138
         </div>
       </div>
-
       {/* Compliance Officer */}
       <div className="max-w-[1150px] mx-auto py-4 text-sm">
         <div className="text-center font-semibold text-white mb-1">
@@ -485,7 +483,6 @@ const Footer: React.FC = () => {
           </a>
         </p>
       </div>
-
       {/* Attention Investors */}
       <div className="max-w-[1150px] mx-auto py-4 text-sm text-gray-400 border-b border-gray-700">
         <p className="font-semibold text-white mb-1">Attention Investors</p>
@@ -508,20 +505,39 @@ const Footer: React.FC = () => {
           </li>
         </ol>
       </div>
-
       {/* Disclaimer Bottom */}
       <div className="text-center text-gray-500 text-xs py-4 px-2">
         The Stock Exchanges are not in any manner answerable, responsible or
         liable to any person or persons for any acts of omission or commission,
-        errors, mistakes and/or violation, actual or perceived…{" "}
+        errors, mistakes and/or violation, actual or perceived, by us or our
+        partners, agents, associates, etc., of any of the Rules, Regulations,
+        Bye-laws of the Stock Exchanges, SEBI Act or any other laws in force
+        from time to time. The Stock Exchanges are not answerable, responsible
+        or liable for any information on this Website or for any services
+        rendered by us, our employees, and our servants.{" "}
         <Link href="#" className="underline">
           CDSL Website
         </Link>
         .
         <br />
-        ©2025 Aionion Capital. All Rights Reserved.
       </div>
-
+      <div className="text-center font-semibold text-white mb-1">
+        The comprehensive details of Depository Participants is displayed on
+        CDSL website at following link:
+        https://www.cdslindia.com/eservices/DP/DPDatabase
+      </div>{" "}
+      <br />
+      <div className="text-center font-semibold text-white mb-1">
+        Investments in securities market are subject to market risks, read all
+        the related documents carefully before investing.
+      </div> <br />
+      {/* Copyright Section */}
+      <div className="bg-black text-center py-5 px-6">
+        {" "}
+        <p className="text-gray-400 text-sm">
+          Copyright ©2025 Aionion Capital. All Rights Reserved.{" "}
+        </p>{" "}
+      </div>
     </footer>
   );
 };
