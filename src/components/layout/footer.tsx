@@ -225,39 +225,47 @@
 // export default Footer;
 
 // ...existing imports
+"use client";
+
 import Image from "next/image";
+import Link from "next/link"; // ✅ Added
 import AppleIcon from "@mui/icons-material/Apple";
+import React from "react";
 
 interface FooterProps {
   header: string;
   links: { name: string; url: string }[];
 }
 
-const FooterStyle: React.FC<FooterProps> = ({ header, links }) => (
-  <div className="min-w-[180px]">
-    {header && (
-      <h5 className="text-white text-[14px] font-semibold mb-4">{header}</h5>
-    )}
-    <ul className="space-y-2">
-      {links.map((link, index) => (
-        <li key={index}>
-          <a
-            className="text-gray-400 hover:text-white text-[13px] transition duration-300"
-            href={link.url}
-          >
-            {link.name}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+const FooterStyle: React.FC<FooterProps> = ({ header, links }) => {
+  return (
+    <div className="xl:mx-3 lg:mx-3 md:mx-0 text-left">
+      {header && (
+        <h5 className="text-white md:text-[14px] font-semibold mb-1">
+          {header}
+        </h5>
+      )}
+      <ul className="space-y-2 mt-1">
+        {links.map((link, index) => (
+          <li key={index}>
+            <Link
+              className="text-gray-400 hover:text-white text-[13px] transition duration-300"
+              href={link.url}
+            >
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black1 w-full text-white text-sm">
-      {/* Top Row: Logo + Store Badges + Social Icons */}
-      <div className="flex flex-col lg:flex-row justify-between items-center max-w-[1350px] mx-auto px-6 py-10 gap-8 border-b border-gray-800">
+    <footer className="bg-black text-white text-sm px-4 md:px-10 pt-10">
+      {/* Logo and App Links */}
+      <div className="flex flex-wrap flex-col lg:flex-row justify-center items-center lg:justify-between max-w-[1350px] mx-auto px-6 py-2">
         <Image
           className="brightness-0 invert"
           src="/footericon/logo.svg"
@@ -266,44 +274,54 @@ const Footer: React.FC = () => {
           height={38}
           priority
         />
-        <div className="flex flex-col sm:flex-row gap-6 items-center">
-          {/* Store Badges */}
-          <div className="flex gap-4">
-            {/* Play Store */}
-            <a href="https://play.google.com/store/apps/details?id=com.intellectsoftwares.aionioncaptial">
-              <div className="flex items-center bg-white px-4 py-1.5 rounded-2xl">
+
+        <div className="flex gap-4 items-center mt-5 lg:mt-0 flex-col md:flex-row">
+          {/* App Store Buttons */}
+          <div className="flex gap-4 items-center">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.intellectsoftwares.aionioncaptial"
+              className="inline-block"
+            >
+              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-1 rounded-3xl">
                 <Image
                   src="/footericon/play.svg"
                   alt="google icon"
                   width={24}
                   height={24}
                 />
-                <div className="ml-2">
-                  <p className="text-black2 text-[9px] font-medium">
+                <div>
+                  <h3 className="text-black2 text-[8px] font-bold">
                     GET IT ON
-                  </p>
-                  <p className="text-black1 text-[13px] font-bold">
+                  </h3>
+                  <h2 className="text-black1 text-[12px] font-bold">
                     Google Play
-                  </p>
+                  </h2>
                 </div>
               </div>
             </a>
-            {/* App Store */}
-            <a href="https://apps.apple.com/us/app/aionion-capital/id6740156959">
-              <div className="flex items-center bg-white px-4 py-1.5 rounded-2xl">
-                <AppleIcon className="text-black2 w-[20px] h-[20px]" />
-                <div className="ml-2">
-                  <p className="text-black2 text-[9px] font-medium">
+            <a
+              href="https://apps.apple.com/us/app/aionion-capital/id6740156959"
+              className="inline-block"
+            >
+              <div className="flex justify-between gap-2 items-center bg-[#ffff] px-6 py-1 rounded-3xl">
+                <AppleIcon
+                  className="text-black2 w-[20px] h-[20px]"
+                  fontSize="medium"
+                />
+                <div>
+                  <h3 className="text-black2 text-[8px] font-bold">
                     Download on the
-                  </p>
-                  <p className="text-black1 text-[13px] font-bold">App Store</p>
+                  </h3>
+                  <h2 className="text-black1 text-[12px] font-bold">
+                    App Store
+                  </h2>
                 </div>
               </div>
             </a>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             {[
               { img: "fb", link: "https://www.facebook.com/aionioncapital" },
               { img: "twitter", link: "https://x.com/aionioncapital" },
@@ -320,22 +338,29 @@ const Footer: React.FC = () => {
                 link: "https://www.youtube.com/@AionionCapital",
               },
             ].map((item, i) => (
-              <a href={item.link} key={i}>
+              <a
+                href={item.link}
+                key={i}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Image
                   src={`/footericon/${item.img}.svg`}
                   alt={`${item.img} logo`}
-                  width={28}
-                  height={28}
-                  className="rounded-lg hover:opacity-80 transition"
+                  width={32}
+                  height={32}
+                  className="rounded-lg w-8 h-8"
+                  priority
                 />
               </a>
             ))}
           </div>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 pb-6 border-b border-gray-700"></div>
 
-      {/* Grid Links */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-[1350px] mx-auto px-6 py-12">
+      {/* Link Columns */}
+      <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-6 max-w-[1350px] mx-auto px-6 py-6 md:py-10">
         {[
           {
             header: "Site map",
@@ -360,14 +385,14 @@ const Footer: React.FC = () => {
             header: "",
             links: [
               {
-                name: "Excalation Matrix",
-                url: "/resources#excalation-matrix",
+                name: "Escalation Matrix",
+                url: "/resources#escalation-matrix",
               },
               { name: "Bank Details", url: "/bonddetails#bank-details" },
               { name: "Investor Support Center", url: "/resources" },
               { name: "Application Form", url: "/resources" },
               { name: "Investor Advisory Section", url: "/investor" },
-              { name: "SMART ODR", url: "/smartodr" },
+              { name: "SMART ODR", url: "/smart-odr" },
               { name: "SCORES", url: "/scores" },
             ],
           },
@@ -391,125 +416,112 @@ const Footer: React.FC = () => {
               { name: "SEBI", url: "https://www.sebi.gov.in/" },
               { name: "CDSL", url: "https://www.cdslindia.com/" },
               { name: "NSDL", url: "https://www.cdslindia.com/" },
-              { name: "CDSL e-voting", url: "https://www.cdslindia.com/" },
-              { name: "NSDL e-voting", url: "https://www.cdslindia.com/" },
+              { name: "CDSL e-voting", url: "https://www.evoting.cdsl.com/" },
+              { name: "NSDL e-voting", url: "https://eservices.nsdl.com/" },
             ],
           },
-        ].map((item, i) => (
-          <FooterStyle key={i} header={item.header} links={item.links} />
+        ].map((section, i) => (
+          <FooterStyle key={i} header={section.header} links={section.links} />
         ))}
       </div>
-
-      {/* Legal, Compliance & Notices */}
-      <div className="border-t border-gray-800 text-gray-400 px-6 py-10 max-w-[1350px] mx-auto space-y-10 text-sm leading-relaxed">
-        {/* Company Info */}
-        <div className="flex flex-col md:flex-row md:justify-between gap-6">
-          <div className="space-y-1">
-            <h2 className="font-semibold text-white">
-              M/s. AIONION CAPITAL MARKET SERVICES PRIVATE LIMITED
-            </h2>
-            <p>
-              3rd Floor, Meerlan Towers, No.33, Hanumantha Road, Royapettah,
-              Chennai - 600 014
-            </p>
-            <p>PAN: ABACA2285K</p>
-            <p>GST: 33ABACA2285K1ZR</p>
-            <p>TAN: CHEA37281G</p>
-            <p>BSE Member Code: 6878</p>
-            <p>CDSL DP ID: 12100800</p>
-            <p>CDSL/NSDL SEBI Reg. No.: IN-DP-790-2024</p>
-          </div>
-
-          <div className="space-y-1 text-end">
-            <p>SEBI: INZ000318532</p>
-            <p>CIN: U66120TN2024PTC167864</p>
-            <p>AMFI Registration Number: ARN-296313</p>
-            <p>NSE Member Code: 90405</p>
-            <p>NSDL DP ID: IN304772</p>
-            <p>Research Analyst SEBI Registration Number: INH000020138</p>
-          </div>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 pb-1 border-b border-gray-700"></div>
+      {/* Company Details */}
+      <div className="text-gray-400 text-[13px] max-w-[1150px] mx-auto py-6 border-b border-gray-700">
+        <div className="text-center font-semibold text-white mb-2">
+          M/s. AIONION CAPITAL MARKET SERVICES PRIVATE LIMITED
         </div>
-
-        {/* Compliance Officer */}
-        <div className="text-center border-t border-gray-700 pt-6">
-          <p>
-            <span className="text-white font-semibold">
-              Compliance Officer:
-            </span>{" "}
-            Ms. Swati Keshari
-            <br />
-            <a
-              href="mailto:compliance@aionioncapital.com"
-              className="underline"
-            >
-              compliance@aionioncapital.com
-            </a>{" "}
-            |{" "}
-            <a
-              href="mailto:grievances@aionioncapital.com"
-              className="underline"
-            >
-              grievances@aionioncapital.com
-            </a>
-          </p>
+        <div className="text-center">
+          3rd Floor, Meerlan Towers, No.33, Hanumantha Road, Royapettah, Chennai
+          – 600 014
         </div>
-
-        {/* Attention Investors */}
-        <div className="border-t border-gray-700 pt-6">
-          <h3 className="text-white font-semibold text-center mb-2">
-            Attention Investors
-          </h3>
-          <ul className="list-decimal list-inside space-y-1">
-            <li>
-              Stock brokers can accept securities as margin only by way of
-              pledge in the depository system w.e.f. 1 Sep 2020.
-            </li>
-            <li>
-              Update your email ID and mobile number with your stock broker to
-              receive OTPs from the depository.
-            </li>
-            <li>
-              Check your securities in the NSDL/CDSL consolidated account
-              statement every month.
-            </li>
-            <li>
-              Prevent unauthorized transactions by updating your mobile/email
-              with your stock broker and enabling end-of-day alerts.
-            </li>
-          </ul>
+        <div className="flex flex-col md:flex-row justify-between gap-y-1 mt-4">
+          <span>Company PAN: ABACA2285K</span>
+          <span>SEBI: INZ000318532</span>
         </div>
-
-        {/* Disclaimer */}
-        <div className="text-sm border-t border-gray-700 pt-6">
-          <p>
-            The Stock Exchanges are not in any manner answerable or liable for
-            any acts of omission or commission by us or our partners, agents,
-            associates, etc., of any of the Rules, Regulations, SEBI Act or any
-            other laws. We are solely responsible for all content on this
-            website.
-          </p>
-          <p className="mt-3">
-            Depository Participants info:{" "}
-            <a
-              href="https://www.cdslindia.com/eservices/DP/DPDatabase"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline text-blue-400"
-            >
-              https://www.cdslindia.com/eservices/DP/DPDatabase
-            </a>
-          </p>
-          <p className="mt-3">
-            Investments in securities market are subject to market risks, read
-            all related documents carefully before investing.
-          </p>
+        <div className="flex flex-col md:flex-row justify-between gap-y-1">
+          <span>GST: 33ABACA2285K1ZR</span>
+          <span>CIN: U66120TN2024PTC167864</span>
         </div>
-
-        {/* Copyright */}
-        <div className="text-center text-gray-500 text-sm border-t border-gray-800 pt-6">
-          ©2025 Aionion Capital. All Rights Reserved.
+        <div className="flex flex-col md:flex-row justify-between gap-y-1">
+          <span>TAN: CHEA37821G</span>
+          <span>AMFI Registration Number: ARN-296313</span>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between gap-y-1">
+          <span>BSE Member Code: 6878</span>
+          <span>NSE Member Code: 90405</span>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between gap-y-1">
+          <span>CDSL DP ID: 12100800</span>
+          <span>NSDL DP ID: IN304772</span>
+        </div>
+        <div className="text-center mt-1">
+          CDSL/NSDL SEBI Registration Number: IN-DP-790-2024
+        </div>
+        <div className="text-center mt-1">
+          Research Analyst SEBI Registration Number: INH000020138
         </div>
       </div>
+
+      {/* Compliance Officer */}
+      <div className="max-w-[1150px] mx-auto py-4 text-sm">
+        <div className="text-center font-semibold text-white mb-1">
+          Compliance Officer Details
+        </div>
+        <p className="text-center text-gray-400">
+          Ms. Swati Keshari | Email:{" "}
+          <a
+            href="mailto:compliance@aionioncapital.com"
+            className="text-blue-400"
+          >
+            compliance@aionioncapital.com
+          </a>
+          <br />
+          For investor grievances:{" "}
+          <a
+            href="mailto:grievances@aionioncapital.com"
+            className="text-blue-400"
+          >
+            grievances@aionioncapital.com
+          </a>
+        </p>
+      </div>
+
+      {/* Attention Investors */}
+      <div className="max-w-[1150px] mx-auto py-4 text-sm text-gray-400 border-b border-gray-700">
+        <p className="font-semibold text-white mb-1">Attention Investors</p>
+        <ol className="list-decimal pl-5 space-y-1">
+          <li>
+            Stock brokers can accept securities as margin only by way of pledge
+            in the depository system w.e.f. 1 Sep 2020.
+          </li>
+          <li>
+            Update your email ID and mobile number with your stock broker to
+            receive OTPs from the depository.
+          </li>
+          <li>
+            Check your securities in the NSDL/CDSL consolidated account
+            statement every month.
+          </li>
+          <li>
+            Prevent unauthorized transactions by updating your mobile/email with
+            your stock broker and enabling end-of-day alerts.
+          </li>
+        </ol>
+      </div>
+
+      {/* Disclaimer Bottom */}
+      <div className="text-center text-gray-500 text-xs py-4 px-2">
+        The Stock Exchanges are not in any manner answerable, responsible or
+        liable to any person or persons for any acts of omission or commission,
+        errors, mistakes and/or violation, actual or perceived…{" "}
+        <Link href="#" className="underline">
+          CDSL Website
+        </Link>
+        .
+        <br />
+        ©2025 Aionion Capital. All Rights Reserved.
+      </div>
+
     </footer>
   );
 };
