@@ -462,7 +462,7 @@ const Footer: React.FC = () => {
       </div>
       {/* Compliance Officer */}
       <div className="max-w-[1150px] mx-auto py-4 text-sm">
-        <div className="text-center font-semibold text-white mb-1">
+        <div className="text-center font-semibold uppercase text-white mb-1">
           Compliance Officer Details
         </div>
         <p className="text-center text-gray-400">
@@ -482,28 +482,33 @@ const Footer: React.FC = () => {
             grievances@aionioncapital.com
           </a>
         </p>
+        {/* Add this line below */}
+        <div className="border-b border-gray-700 mt-4" />
       </div>
       {/* Attention Investors */}
       <div className="max-w-[1150px] mx-auto py-4 text-sm text-gray-400 border-b border-gray-700">
-        <p className="font-semibold text-white mb-1">Attention Investors</p>
-        <ol className="list-decimal pl-5 space-y-1">
-          <li>
-            Stock brokers can accept securities as margin only by way of pledge
-            in the depository system w.e.f. 1 Sep 2020.
-          </li>
-          <li>
-            Update your email ID and mobile number with your stock broker to
-            receive OTPs from the depository.
-          </li>
-          <li>
-            Check your securities in the NSDL/CDSL consolidated account
-            statement every month.
-          </li>
-          <li>
-            Prevent unauthorized transactions by updating your mobile/email with
-            your stock broker and enabling end-of-day alerts.
-          </li>
-        </ol>
+        <p className="text-center font-semibold uppercase text-white mb-1">
+          Attention Investors
+        </p>
+
+        <li>
+          Stock brokers can accept securities as margin only by way of pledge in
+          the depository system w.e.f. 1 Sep 2020.
+        </li>
+        <li>
+          Update your email ID and mobile number with your stock
+          broker/depository participant to receive an OTP directly from the
+          depository when creating a pledge.
+        </li>
+        <li>
+          Check your securities/MF/bonds in the consolidated account statement
+          issued by NSDL/CDSL every month.
+        </li>
+        <li>
+          Prevent unauthorised transactions → update your mobile numbers/email
+          IDs with your stock brokers and receive end-of-day transaction alerts
+          from the exchange. Issued in the interest of investors.
+        </li>
       </div>
       {/* Disclaimer Bottom */}
       <div className="text-center text-gray-500 text-xs py-4 px-2">
@@ -521,26 +526,25 @@ const Footer: React.FC = () => {
         .
         <br />
       </div>
-      <div className="text-center font-semibold text-white mb-1">
+      <div className="text-center font-medium text-white mb-1">
         The comprehensive details of Depository Participants is displayed on
         CDSL website at following link:
         https://www.cdslindia.com/eservices/DP/DPDatabase
       </div>{" "}
       <br />
-      <div className="text-center font-semibold text-white mb-1">
+      <div className="text-center font-medium text-white mb-1">
         Investments in securities market are subject to market risks, read all
         the related documents carefully before investing.
-      </div> <br />
+      </div>
+      <br />
       {/* Copyright Section */}
-      <div className="bg-black text-center py-5 px-6">
-        {" "}
+      <div className="bg-black text-center py-5 px-0">
         <p className="text-gray-400 text-sm">
-          Copyright ©2025 Aionion Capital. All Rights Reserved.{" "}
-        </p>{" "}
+          Copyright ©2025 Aionion Capital. All Rights Reserved.
+        </p>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
