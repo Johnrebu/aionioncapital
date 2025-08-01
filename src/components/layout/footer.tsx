@@ -228,16 +228,17 @@
 import Image from "next/image";
 import AppleIcon from "@mui/icons-material/Apple";
 
-// FooterStyle remains unchanged
 interface FooterProps {
   header: string;
   links: { name: string; url: string }[];
 }
 
 const FooterStyle: React.FC<FooterProps> = ({ header, links }) => (
-  <div className="xl:mx-3 lg:mx-3 md:mx-0 text-left">
-    <h5 className="text-white md:text-[14px] font-semibold mb-5">{header}</h5>
-    <ul className="space-y-2 mt-4">
+  <div className="min-w-[180px]">
+    {header && (
+      <h5 className="text-white text-[14px] font-semibold mb-4">{header}</h5>
+    )}
+    <ul className="space-y-2">
       {links.map((link, index) => (
         <li key={index}>
           <a
@@ -255,8 +256,8 @@ const FooterStyle: React.FC<FooterProps> = ({ header, links }) => (
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black1 w-full text-white text-sm">
-      {/* Logo & App Store & Social Icons */}
-      <div className="flex flex-wrap flex-col lg:flex-row justify-center items-center lg:justify-between max-w-[1350px] mx-auto px-6 py-8">
+      {/* Top Row: Logo + Store Badges + Social Icons */}
+      <div className="flex flex-col lg:flex-row justify-between items-center max-w-[1350px] mx-auto px-6 py-10 gap-8 border-b border-gray-800">
         <Image
           className="brightness-0 invert"
           src="/footericon/logo.svg"
@@ -265,46 +266,44 @@ const Footer: React.FC = () => {
           height={38}
           priority
         />
-
-        <div className="flex gap-4 items-center mt-5 lg:mt-0 flex-col md:flex-row">
-          <div className="flex gap-4 items-center">
+        <div className="flex flex-col sm:flex-row gap-6 items-center">
+          {/* Store Badges */}
+          <div className="flex gap-4">
             {/* Play Store */}
             <a href="https://play.google.com/store/apps/details?id=com.intellectsoftwares.aionioncaptial">
-              <div className="flex gap-2 items-center bg-white px-6 py-1 rounded-3xl">
+              <div className="flex items-center bg-white px-4 py-1.5 rounded-2xl">
                 <Image
                   src="/footericon/play.svg"
                   alt="google icon"
                   width={24}
                   height={24}
                 />
-                <div>
-                  <h3 className="text-black2 text-[8px] font-bold">
+                <div className="ml-2">
+                  <p className="text-black2 text-[9px] font-medium">
                     GET IT ON
-                  </h3>
-                  <h2 className="text-black1 text-[12px] font-bold">
+                  </p>
+                  <p className="text-black1 text-[13px] font-bold">
                     Google Play
-                  </h2>
+                  </p>
                 </div>
               </div>
             </a>
             {/* App Store */}
             <a href="https://apps.apple.com/us/app/aionion-capital/id6740156959">
-              <div className="flex gap-2 items-center bg-white px-6 py-1 rounded-3xl">
+              <div className="flex items-center bg-white px-4 py-1.5 rounded-2xl">
                 <AppleIcon className="text-black2 w-[20px] h-[20px]" />
-                <div>
-                  <h3 className="text-black2 text-[8px] font-bold">
+                <div className="ml-2">
+                  <p className="text-black2 text-[9px] font-medium">
                     Download on the
-                  </h3>
-                  <h2 className="text-black1 text-[12px] font-bold">
-                    App Store
-                  </h2>
+                  </p>
+                  <p className="text-black1 text-[13px] font-bold">App Store</p>
                 </div>
               </div>
             </a>
           </div>
 
-          {/* Social Media */}
-          <div className="flex gap-4 items-center">
+          {/* Social Icons */}
+          <div className="flex gap-4">
             {[
               { img: "fb", link: "https://www.facebook.com/aionioncapital" },
               { img: "twitter", link: "https://x.com/aionioncapital" },
@@ -325,9 +324,9 @@ const Footer: React.FC = () => {
                 <Image
                   src={`/footericon/${item.img}.svg`}
                   alt={`${item.img} logo`}
-                  width={32}
-                  height={32}
-                  className="rounded-lg w-8 h-8"
+                  width={28}
+                  height={28}
+                  className="rounded-lg hover:opacity-80 transition"
                 />
               </a>
             ))}
@@ -335,8 +334,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer Grid Links */}
-      <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-4 grid-cols-1 gap-6 max-w-[1350px] mx-auto px-6 py-6 md:py-10">
+      {/* Grid Links */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-[1350px] mx-auto px-6 py-12">
         {[
           {
             header: "Site map",
@@ -401,12 +400,12 @@ const Footer: React.FC = () => {
         ))}
       </div>
 
-      {/* NEW SECTION: Legal + Compliance + Advisory + Disclaimer */}
-      <div className="border-gray-700 text-gray-400 px-6 py-10 text-sm space-y-8">
-        {/* Company Details */}
+      {/* Legal, Compliance & Notices */}
+      <div className="border-t border-gray-800 text-gray-400 px-6 py-10 max-w-[1350px] mx-auto space-y-10 text-sm leading-relaxed">
+        {/* Company Info */}
         <div className="flex flex-col md:flex-row md:justify-between gap-6">
           <div className="space-y-1">
-            <h2 className="font-bold text-white">
+            <h2 className="font-semibold text-white">
               M/s. AIONION CAPITAL MARKET SERVICES PRIVATE LIMITED
             </h2>
             <p>
@@ -421,7 +420,7 @@ const Footer: React.FC = () => {
             <p>CDSL/NSDL SEBI Reg. No.: IN-DP-790-2024</p>
           </div>
 
-          <div className="space-y-1 text-end text-sm leading-relaxed">
+          <div className="space-y-1 text-end">
             <p>SEBI: INZ000318532</p>
             <p>CIN: U66120TN2024PTC167864</p>
             <p>AMFI Registration Number: ARN-296313</p>
@@ -432,20 +431,20 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Compliance Officer */}
-        <div className="border-t border-gray-700 pt-6">
-          <h3 className="font-bold text-white mb-1 text-center">
-            Compliance Officer Details
-          </h3>
-          <p className="text-center">
-            Ms. Swati Keshari | Email:{" "}
+        <div className="text-center border-t border-gray-700 pt-6">
+          <p>
+            <span className="text-white font-semibold">
+              Compliance Officer:
+            </span>{" "}
+            Ms. Swati Keshari
+            <br />
             <a
               href="mailto:compliance@aionioncapital.com"
               className="underline"
             >
               compliance@aionioncapital.com
-            </a>
-            <br />
-            For investor grievances:{" "}
+            </a>{" "}
+            |{" "}
             <a
               href="mailto:grievances@aionioncapital.com"
               className="underline"
@@ -457,7 +456,7 @@ const Footer: React.FC = () => {
 
         {/* Attention Investors */}
         <div className="border-t border-gray-700 pt-6">
-          <h3 className="font-bold mb-2 text-white text-center">
+          <h3 className="text-white font-semibold text-center mb-2">
             Attention Investors
           </h3>
           <ul className="list-decimal list-inside space-y-1">
@@ -481,30 +480,34 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="text-sm text-gray-400 border-t border-gray-700 pt-6">
+        <div className="text-sm border-t border-gray-700 pt-6">
           <p>
-            The Stock Exchanges are not in any manner answerable, responsible or
-            liable to any person or persons for any acts of omission or
-            commission, errors, mistakes and/or violation, actual or perceived,
-            by us or our partners, agents, associates, etc., of any of the
-            Rules, Regulations, Bye-laws of the Stock Exchanges, SEBI Act or any
-            other laws in force from time to time. The Stock Exchanges are not
-            answerable, responsible or liable for any information on this
-            Website or for any services rendered by us, our employees, and our
-            servants.
+            The Stock Exchanges are not in any manner answerable or liable for
+            any acts of omission or commission by us or our partners, agents,
+            associates, etc., of any of the Rules, Regulations, SEBI Act or any
+            other laws. We are solely responsible for all content on this
+            website.
+          </p>
+          <p className="mt-3">
+            Depository Participants info:{" "}
             <a
               href="https://www.cdslindia.com/eservices/DP/DPDatabase"
               target="_blank"
               rel="noopener noreferrer"
               className="underline text-blue-400"
             >
-              CDSL Website
+              https://www.cdslindia.com/eservices/DP/DPDatabase
             </a>
-            .
           </p>
-          <p className="text-center mt-4">
-            ©2025 Aionion Capital. All Rights Reserved.
+          <p className="mt-3">
+            Investments in securities market are subject to market risks, read
+            all related documents carefully before investing.
           </p>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-center text-gray-500 text-sm border-t border-gray-800 pt-6">
+          ©2025 Aionion Capital. All Rights Reserved.
         </div>
       </div>
     </footer>
@@ -512,3 +515,4 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+

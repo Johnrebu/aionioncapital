@@ -215,7 +215,7 @@ export default function About() {
           <div className="max-w-[432px]">
             <Details
               heder="Name"
-              value="M/s. AIONION CAPITAL MARKET SERVICES PRIVATE LIMITED"
+              value="M/s. AIONION CAPITAL MARKET SERVICES PRIVATE LIMITED"
             />
             <Details heder="SEBI Registration Number" value="INZ000318532" />
             <Details heder="TAN" value="CHEA37281G" />
