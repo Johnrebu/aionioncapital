@@ -72,7 +72,7 @@ const Calclator = () => {
           <div className="text-black py-2 px-4 mr-4">₹ 45634</div>
         </div>
         <div className=" border-b mb-4 mx-3 flex justify-between">
-          <div className="text-black py-2 px-1">Tatol Value</div>
+          <div className="text-black py-2 px-1">Total Value</div>
           <div className="text-black py-2 px-4 mr-4">
             ₹ {Number(investAmount) + Number(45634)}
           </div>
