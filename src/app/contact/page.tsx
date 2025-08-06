@@ -39,7 +39,7 @@ export default function Contact() {
   const listArr = [
     {
       header: "HEAD OFFICE",
-      para: `"Reg. Office: 3rd Floor, Meerlan Towers,\n No. 33 Hanumantha Road, Royapettah,\n Chennai - 600 014\n contactus@aionioncapital.com | www.aionioncapital.com`,
+      para: `Reg. Office: 3rd Floor, Meerlan Towers,\n No. 33 Hanumantha Road, Royapettah,\n Chennai - 600 014\n ph: 044-46895225`,
     },
     {
       header: "COIMBATORE",
@@ -254,7 +254,7 @@ export default function Contact() {
           </div>
           <div className="grid lg:grid-cols-3 grid-cols-1 mt-10 xl:px-3 lg:px-5 gap-5">
             {listArr.map((item, i) => (
-              <div className="bg-[#FFFFFF] p-5 min-h-[170px]" key={i}>
+              <div className="bg-[#FFFFFF] p-5 min-h-[150px]" key={i}>
                 <div className="text-black1 font-bold mb-2">{item?.header}</div>
                 {item.para?.split("\n").map((line, index) => (
                   <div className="text-black1 text-[14px]" key={index}>
