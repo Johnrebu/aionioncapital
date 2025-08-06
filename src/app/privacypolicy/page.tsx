@@ -277,7 +277,7 @@ Data required to provide the services you request, including trading preferences
       <div className="bg-[url('/privacy/privacybg.png')] bg-cover bg-center bg-no-repeat xl:h-[55vh] h-[45vh] w-full" />
 
       <div className="bg-white py-10 px-4 sm:px-8 md:px-16 xl:px-60">
-        <div className="max-w-[900px] mx-auto bg-[#f9f9f9] border border-[#e0e0e0] rounded-lg shadow-md px-6 sm:px-10 pt-5 pb-10 -mt-32">
+        <div className="max-w-[900px] mx-auto bg-[#f5f5f5] border border-[#e0e0e0] rounded-lg shadow-md px-6 sm:px-10 pt-5 pb-10 -mt-32">
           <h2 className="text-[#FC9A1C] font-secondary font-medium text-[3rem] uppercase text-center mb-5">
             Privacy Policy
           </h2>
