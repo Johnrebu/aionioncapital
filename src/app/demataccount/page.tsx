@@ -515,9 +515,9 @@ export default function DematAccount() {
       </div>
 
       {/* Section 4: KYC Steps & Approval Time */}
-      <div className="bg-gray-50 py-20">
+      <div className="bg-gray-50 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-[3rem] uppercase font-medium font-secondary text-[#FC9A1C] mb-12">
               KYC STEPS
             </h2>
@@ -558,25 +558,31 @@ export default function DematAccount() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-8 shadow-sm">
-            <h3 className="text-[2.5rem] font-secondary uppercase text-[#FE667C] text-center mb-8 font-medium">
-              KYC APPROVAL TIME
+          <div className="bg-[#f9fafb] border border-[#e5e7eb] rounded-xl p-6 sm:p-8 shadow-md">
+            <h3 className="text-center text-2xl sm:text-5xl font-secondary text-[#e11d48] tracking-wide mb-6 uppercase">
+              KYC Approval Time
             </h3>
 
-            <div className="space-y-4 text-gray-700 text-[14px] leading-6">
+            <div className="space-y-5 text-[15px] sm:text-[16px] leading-relaxed text-gray-800">
               <p>
-                Your account with Aionion Capital Market Services Private
-                Limited (ACMSPL) will typically be activated within 72
-                hours—provided your KYC is verified and all submitted documents
-                are in order.
+                Your account with{" "}
+                <strong>
+                  Aionion Capital Market Services Private Limited (ACMSPL)
+                </strong>{" "}
+                will typically be activated within <strong>72 hours</strong>
+                —provided your KYC is verified and all submitted documents are
+                in order.
               </p>
-              <p>
-                If you are opening an ACMSPL account for the first time or
-                updating your KYC details during the process, the information
-                needs to be verified by the KYC Registration Agency (KRA) in
-                line with SEBI guidelines. This verification by the KRA can take
-                up to 72 hours, which may slightly delay the account activation.
-              </p>
+              <div className="bg-white border-l-4 border-[#e11d48] p-4 rounded-md shadow-sm">
+                <p className="text-sm text-gray-700">
+                  If you are opening an ACMSPL account for the first time or
+                  updating your KYC details during the process, the information
+                  must be verified by the{" "}
+                  <strong>KYC Registration Agency (KRA)</strong> as per{" "}
+                  <strong>SEBI guidelines</strong>. This may take up to 72 hours
+                  and could delay account activation slightly.
+                </p>
+              </div>
             </div>
           </div>
         </div>
