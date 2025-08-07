@@ -214,7 +214,7 @@ export default function Resources() {
                   className="bg-[#FFFFFF] p-5 flex justify-between gap-5 xl:flex-row flex-col cursor-pointer"
                 >
                   <div className="text-left">
-                    <h3 className="font-bold text-[1rem] text-[#484848] uppercase">
+                    <h3 className="font-bold text-sm text-[#484848] uppercase">
                       {e.name}
                     </h3>
                     {/* <p className="text-[#000000] lowercase">{e.content}</p> */}
@@ -225,135 +225,145 @@ export default function Resources() {
           </div>
         </div>
 
-        {/* 2nd section */}
+        {/* 2nd section - Redesigned for better clarity */}
         <div
           className="py-10 xl:pl-0 px-0 xl:px-10 bg-[#FBFDFC]"
           id="find-complaint"
         >
           <div className="text-center xl:px-0 px-10">
-            <div className="text-[#484848] font-bold uppercase xl:text-[3rem] text-[2.5rem] font-secondary  text-center">
-              Procedure for filing a complaint on designated email ID and
-              <br className="hidden xl:block lg:block" /> finding out the status
-              of the complaint
-            </div>
+            <h2 className="text-[#484848] font-bold uppercase xl:text-[3rem] text-[2.5rem] font-secondary text-center">
+              Procedure for filing a complaint
+            </h2>
+            <p className="text-lg mt-4 text-gray-600 max-w-4xl mx-auto">
+              Follow these simple steps to submit a complaint and track its
+              status
+            </p>
           </div>
 
-          <div className="grid xl:grid-cols-2 lg:grid-cols-2 grid-cols-1 mt-8">
-            <div>
+          <div className="grid xl:grid-cols-2 lg:grid-cols-2 grid-cols-1 mt-8 gap-8">
+            {/* Left side - Image */}
+            <div className="flex justify-center">
               <Image
-                className="xl:w-[800px] lg:h-[420px] xl:h-[430px]"
+                className="xl:w-[800px] lg:h-[420px] xl:h-[430px] rounded-lg shadow-md"
                 src="/resources/resourcebg.png"
-                alt="labtop"
+                alt="Complaint process illustration"
                 width={800}
                 height={600}
               />
             </div>
-            <div className="xl:-ml-12 lg:-ml-12 flex justify-around xl:justify-center lg:justify-center xl:gap-6 flex-col xl:px-0 lg:px-0 px-10 lg:gap-7 gap-10 lg:mt-0 xl:mt-0 mt-8">
-              <div className="flex justify-start gap-5 xl:items-center items-start w-[100%] xl:mt-2 lg:mt-4">
-                <Image
-                  className="xl:w-[100] w-[100]"
-                  src="resources/one.svg"
-                  alt="message"
-                  width={100}
-                  height={270}
-                />
-                <div className="xl:pr-0 pr-2">
-                  <h3 className="text-[#848484] font-bold  text-[20px] uppercase">
-                    step 1
+
+            {/* Right side - Steps (Redesigned) */}
+            <div className="xl:px-10 lg:px-10 px-6 space-y-8">
+              {/* Step 1 */}
+              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+                <div className="flex-shrink-0 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Submit Your Complaint
                   </h3>
-                  <p className="text-[#000000] text-[13px]">
-                    {" "}
-                    If you have any complaints or concerns, please email{" "}
-                    <a className="text-blue-500 hover:text-blue-700 underline">
+                  <p className="text-gray-700">
+                    Email us at{" "}
+                    <a
+                      href="mailto:grievances@aionioncapital.com"
+                      className="text-blue-600 hover:underline font-medium"
+                    >
                       grievances@aionioncapital.com
                     </a>{" "}
-                    Kindly provide a detailed description of the issue,
-                    including the date, time, persons contacted, actions taken,
-                    and any supporting documentation related to the matter.
+                    with:
                   </p>
+                  <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                    <li>Detailed description of the issue</li>
+                    <li>Date and time of occurrence</li>
+                    <li>Persons you've contacted</li>
+                    <li>Any supporting documents</li>
+                  </ul>
                 </div>
               </div>
-              <div className="flex justify-start gap-5 xl:items-center items-start w-[100%]">
-                <Image
-                  className="xl:w-[100] w-[100] xl:mt-2 lg:mt-2"
-                  src="resources/two.svg"
-                  alt="message"
-                  width={100}
-                  height={270}
-                />
-                <div className="xl:pr-0 pr-2">
-                  <h3 className="text-[#848484] font-bold  text-[20px] uppercase">
-                    step 2
+
+              {/* Step 2 */}
+              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
+                <div className="flex-shrink-0 bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Receive Acknowledgement
                   </h3>
-                  <p className="text-[#000000] text-[13px]">
-                    Upon receiving your email, you will automatically receive a
-                    reply with a Ticket ID/Complaint Reference Number. Our team
-                    aims to respond within 36 hours. Please note that the
-                    response time may vary based on the nature of your
-                    complaint. You can check the status of your complaint at any
-                    time by sending an email with your Ticket ID/Complaint
-                    Reference Number.
+                  <p className="text-gray-700">
+                    You'll immediately receive an automated reply with:
+                  </p>
+                  <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                    <li>Ticket ID/Complaint Reference Number</li>
+                    <li>
+                      Expected response timeline (typically within 36 hours)
+                    </li>
+                  </ul>
+                  <p className="mt-2 text-gray-700">
+                    Track your complaint status anytime by emailing us with your
+                    Ticket ID.
                   </p>
                 </div>
               </div>
-              <div className="flex justify-start gap-5 xl:items-center items-start w-[100%]">
-                <Image
-                  className="xl:w-[100] w-[100]"
-                  src="resources/three.svg"
-                  alt="message"
-                  width={100}
-                  height={270}
-                />
-                <div className="xl:pr-0 pr-2">
-                  <h3 className="text-[#848484] font-bold  text-[20px] uppercase">
-                    step 3
+
+              {/* Step 3 */}
+              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
+                <div className="flex-shrink-0 bg-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Escalation Options
                   </h3>
-                  <p className="text-[#000000] text-[13px]">
-                    {" "}
-                    If you are not satisfied with the resolution, you can lodge
-                    a complaint with SEBI through their SCORES portal at{" "}
-                    <a
-                      href="https://scores.gov.in/scores/Welcome.html"
-                      className="text-blue-500 hover:text-blue-700 underline"
-                    >
-                      https://scores.gov.in/scores/Welcome.html,
-                    </a>{" "}
-                    or with the Exchange via{" "}
-                    <a
-                      href="https://investorhelpline.nseindia.com/NICEPLUS/"
-                      className="text-blue-500 hover:text-blue-700 underline"
-                    >
-                      https://investorhelpline.nseindia.com/NICEPLUS/
-                    </a>{" "}
-                    or{" "}
-                    <a
-                      href=" https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx"
-                      className="text-blue-500 hover:text-blue-700 underline"
-                    >
-                      https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx.
-                    </a>{" "}
-                    When submitting your complaint, please include your Service
-                    Ticket/Complaint Reference Number.
+                  <p className="text-gray-700">
+                    If unsatisfied with our resolution, you may escalate to:
                   </p>
-                  <p className="text-[#000000] text-[13px] mt-2">
-                    {" "}
-                    You may also access the SMART Online Resolution of Dispute
-                    Portal at{" "}
-                    <a
-                      href=" https://smartodr.in/login"
-                      className="text-blue-500 hover:text-blue-700 underline"
-                    >
-                      https://smartodr.in/login
-                    </a>
-                    . For further information, you can review the SEBI ODR
-                    circular at SEBI ODR Circular.
+                  <div className="mt-2 space-y-2">
+                    <div>
+                      <h4 className="font-semibold text-gray-800">
+                        SEBI SCORES Portal
+                      </h4>
+                      <a
+                        href="https://scores.gov.in/scores/Welcome.html"
+                        className="text-blue-600 hover:underline block"
+                      >
+                        https://scores.gov.in/scores/Welcome.html
+                      </a>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">
+                        NSE Investor Helpline
+                      </h4>
+                      <a
+                        href="https://investorhelpline.nseindia.com/NICEPLUS/"
+                        className="text-blue-600 hover:underline block"
+                      >
+                        https://investorhelpline.nseindia.com/NICEPLUS/
+                      </a>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-800">
+                        BSE Investor Complaints
+                      </h4>
+                      <a
+                        href="https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx"
+                        className="text-blue-600 hover:underline block"
+                      >
+                        https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx
+                      </a>
+                    </div>
+                  </div>
+                  <p className="mt-3 text-sm text-gray-600">
+                    Remember to include your Service Ticket/Complaint Reference
+                    Number when escalating.
                   </p>
                 </div>
               </div>
-              <div className="ml-32"></div>
             </div>
           </div>
         </div>
+
         <div
           className="flex bg-[#EEEEEE] p-10 justify-center"
           id="excalation-matrix"
