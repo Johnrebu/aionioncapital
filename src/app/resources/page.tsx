@@ -231,20 +231,18 @@ export default function Resources() {
           id="find-complaint"
         >
           <div className="text-center xl:px-0 px-10">
-            <h2 className="text-[#484848] font-bold uppercase xl:text-[3rem] text-[2.5rem] font-secondary text-center">
-              Procedure for filing a complaint
-            </h2>
-            <p className="text-lg mt-4 text-gray-600 max-w-4xl mx-auto">
-              Follow these simple steps to submit a complaint and track its
-              status
-            </p>
+            <div className="text-[#484848] font-bold uppercase xl:text-[3rem] text-[2.5rem] font-secondary  text-center">
+              Procedure for filing a complaint on designated email ID and
+              <br className="hidden xl:block lg:block" /> finding out the status
+              of the complaint
+            </div>
           </div>
 
-          <div className="grid xl:grid-cols-2 lg:grid-cols-2 grid-cols-1 mt-8 gap-8">
+          <div className="grid xl:grid-cols-2 lg:grid-cols-2 grid-cols-1 mt-4 gap-4">
             {/* Left side - Image */}
             <div className="flex justify-center">
               <Image
-                className="xl:w-[800px] lg:h-[420px] xl:h-[430px] rounded-lg shadow-md"
+                className="xl:w-[800px] lg:h-[420px] xl:h-[430px] "
                 src="/resources/resourcebg.png"
                 alt="Complaint process illustration"
                 width={800}
@@ -252,111 +250,110 @@ export default function Resources() {
               />
             </div>
 
-            {/* Right side - Steps (Redesigned) */}
-            <div className="xl:px-10 lg:px-10 px-6 space-y-8">
+            <div className="space-y-4">
               {/* Step 1 */}
-              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                <div className="flex-shrink-0 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
-                  1
+              <div className="flex gap-1 -ml-12 items-start">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/resources/one.svg"
+                    alt="Step 1"
+                    width={80}
+                    height={80}
+                  />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Submit Your Complaint
-                  </h3>
-                  <p className="text-gray-700">
-                    Email us at{" "}
-                    <a
-                      href="mailto:grievances@aionioncapital.com"
-                      className="text-blue-600 hover:underline font-medium"
-                    >
-                      grievances@aionioncapital.com
-                    </a>{" "}
-                    with:
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">
+                    STEP 1
+                  </h2>
+                  <p className="text-gray-700 text-xs">
+                    If you have any complaints or concerns, please email{" "}
+                    <span className="text-blue-600">
+                      grievances@aloniocognital.com
+                    </span>
+                    . Kindly provide a detailed description of the issue,
+                    including the date, time, persons contacted, actions taken,
+                    and any supporting documentation related to the matter.
                   </p>
-                  <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                    <li>Detailed description of the issue</li>
-                    <li>Date and time of occurrence</li>
-                    <li>Persons you've contacted</li>
-                    <li>Any supporting documents</li>
-                  </ul>
                 </div>
               </div>
 
               {/* Step 2 */}
-              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-green-500">
-                <div className="flex-shrink-0 bg-green-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
-                  2
+              <div className="flex gap-1 -ml-12 items-start">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/resources/two.svg"
+                    alt="Step 2"
+                    width={80}
+                    height={80}
+                  />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Receive Acknowledgement
-                  </h3>
-                  <p className="text-gray-700">
-                    You'll immediately receive an automated reply with:
-                  </p>
-                  <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-                    <li>Ticket ID/Complaint Reference Number</li>
-                    <li>
-                      Expected response timeline (typically within 36 hours)
-                    </li>
-                  </ul>
-                  <p className="mt-2 text-gray-700">
-                    Track your complaint status anytime by emailing us with your
-                    Ticket ID.
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">
+                    STEP 2
+                  </h2>
+                  <p className="text-gray-700 text-xs">
+                    Upon receiving your email, you will automatically receive a
+                    reply with a Ticket ID/Complaint Reference Number. Our team
+                    aims to respond within 36 hours. Please note that the
+                    response time may vary based on the nature of your
+                    complaint. You can check the status of your complaint at any
+                    time by sending an email with your Ticket ID/Complaint
+                    Reference Number.
                   </p>
                 </div>
               </div>
 
               {/* Step 3 */}
-              <div className="flex gap-5 items-start bg-white p-6 rounded-lg shadow-sm border-l-4 border-purple-500">
-                <div className="flex-shrink-0 bg-purple-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-xl">
-                  3
+              <div className="flex gap-1 -ml-12 items-start">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/resources/three.svg"
+                    alt="Step 3"
+                    width={80}
+                    height={80}
+                  />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Escalation Options
-                  </h3>
-                  <p className="text-gray-700">
-                    If unsatisfied with our resolution, you may escalate to:
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                  <h2 className="text-xl font-bold text-gray-900 mb-1">
+                    STEP 3
+                  </h2>
+                  <p className="text-gray-700 text-xs">
+                    If you are not satisfied with the resolution, you can lodge
+                    a complaint with SEBI through their SCORES portal at{" "}
+                    <a
+                      href="https://scores.sebi.gov.in/fmain-content"
+                      className="text-blue-600 hover:underline"
+                    >
+                      https://scores.sebi.gov.in/fmain-content
+                    </a>{" "}
+                    or with the Exchange via{" "}
+                    <a
+                      href="https://investorhelpline.neehrida.com/NICEPLUS"
+                      className="text-blue-600 hover:underline"
+                    >
+                      https://investorhelpline.neehrida.com/NICEPLUS
+                    </a>{" "}
+                    or{" "}
+                    <a
+                      href="https://bseers.beehrida.com/ecomplaint/firminvestorHome.aspx"
+                      className="text-blue-600 hover:underline"
+                    >
+                      https://bseers.beehrida.com/ecomplaint/firminvestorHome.aspx
+                    </a>
+                    . When submitting your complaint, please include your
+                    Service Ticket/Complaint Reference Number.
                   </p>
-                  <div className="mt-2 space-y-2">
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        SEBI SCORES Portal
-                      </h4>
-                      <a
-                        href="https://scores.gov.in/scores/Welcome.html"
-                        className="text-blue-600 hover:underline block"
-                      >
-                        https://scores.gov.in/scores/Welcome.html
-                      </a>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        NSE Investor Helpline
-                      </h4>
-                      <a
-                        href="https://investorhelpline.nseindia.com/NICEPLUS/"
-                        className="text-blue-600 hover:underline block"
-                      >
-                        https://investorhelpline.nseindia.com/NICEPLUS/
-                      </a>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800">
-                        BSE Investor Complaints
-                      </h4>
-                      <a
-                        href="https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx"
-                        className="text-blue-600 hover:underline block"
-                      >
-                        https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx
-                      </a>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-sm text-gray-600">
-                    Remember to include your Service Ticket/Complaint Reference
-                    Number when escalating.
+                  <p className="mt-3 text-gray-700 text-xs">
+                    You may also access the SMART Online Resolution of Dispute
+                    Portal at{" "}
+                    <a
+                      href="https://smartlogin.login"
+                      className="text-blue-600 hover:underline"
+                    >
+                      https://smartlogin.login
+                    </a>
+                    . For further information, you can review the SEBI ODR
+                    circular at SEBI ODR Circular.
                   </p>
                 </div>
               </div>
@@ -809,4 +806,4 @@ export default function Resources() {
       </div>
     </div>
   );
-};
+}
