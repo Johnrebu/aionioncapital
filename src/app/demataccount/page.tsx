@@ -1,7 +1,3 @@
-// import Header from "@/components/layout/header";
-// import Image from "next/image";
-
-// export default function dematAccount() {
 //   const listArr = [
 //     { img: "/demat/Wallet.svg", title: "Zero Maintenance Charges" },
 //     { img: "/demat/Cash.svg", title: "Fast and Paperless" },
@@ -352,14 +348,6 @@
 "use client";
 import Header from "@/components/layout/Header";
 import Image from "next/image";
-import {
-  User,
-  FileText,
-  Building,
-  Calendar,
-  CheckCircle,
-  Clock,
-} from "lucide-react";
 
 export default function DematAccount() {
   const listArr = [
@@ -376,16 +364,6 @@ export default function DematAccount() {
     },
   ];
 
-  const kycSteps = [
-    { icon: User, label: "Contact Details", completed: true },
-    { icon: FileText, label: "Demat Details", completed: true },
-    { icon: User, label: "Personal Details", completed: true },
-    { icon: Building, label: "Bank Details", completed: true },
-    { icon: Calendar, label: "Application Details", completed: false },
-    { icon: CheckCircle, label: "E-Sign Details", completed: false },
-    { icon: Clock, label: "KYC Complete", completed: false },
-  ];
-
   return (
     <div className="items-center gap-16 font-[family-name:var(--font-geist-sans)]">
       <Header />
@@ -396,13 +374,13 @@ export default function DematAccount() {
           <Image src="/demat/phone2.png" alt="demat" width={400} height={540} />
         </div>
         <div className="mt-8 mb-2 text-center lg:text-left md:py-0 py-10">
-          <h2 className="text-[#484848] uppercase font-medium text-[3rem] font-secondary">
+          <h2 className="text-[#484848] uppercase font-medium text-[3rem] font-secondary h-[50px]">
             Open Your
           </h2>
-          <h1 className="text-[#FE667C] uppercase font-medium text-[4rem] font-secondary">
+          <h1 className="text-[#FE667C] uppercase font-medium text-[4rem] font-secondary h-[75px]">
             Account
           </h1>
-          <h3 className="text-[#484848] uppercase font-medium text-[3rem] font-secondary">
+          <h3 className="text-[#484848] uppercase font-medium text-[3rem] font-secondary h-[65px]">
             Today with Aionion Capital!
           </h3>
           <button className="bg-[#2B3640] text-white py-2 px-4 mt-3 rounded-full uppercase font-medium lg:mb-4">
@@ -410,7 +388,7 @@ export default function DematAccount() {
               href="https://ekyc.aionioncapital.com/aionion/individual1"
               target="_"
             >
-              Open free demat account
+              Open your account today
             </a>
           </button>
         </div>
@@ -515,73 +493,201 @@ export default function DematAccount() {
       </div>
 
       {/* Section 4: KYC Steps & Approval Time */}
-      <div className="bg-gray-50 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-[3rem] uppercase font-medium font-secondary text-[#FC9A1C] mb-12">
-              KYC STEPS
+      <div className="bg-gradient-to-br from-gray-50 to-white py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* KYC Steps Section */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold font-secondary text-gray-800 mb-4">
+              KYC <span className="text-[#FE667C]">STEPS</span>
             </h2>
+            <p className="text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+              Complete your KYC process in simple steps to activate your demat
+              account
+            </p>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-8 relative">
-              {kycSteps.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center relative"
-                  >
+            {/* KYC Steps Progress */}
+            <div className="relative">
+              {/* Progress Line */}
+              <div className="hidden lg:block absolute top-8 left-1/2 transform -translate-x-1/2 w-4/5 h-1 bg-gray-200 rounded-full">
+                <div className="w-4/7 h-full bg-gradient-to-r from-[#FE667C] to-[#0023FF] rounded-full"></div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 lg:gap-4 relative">
+                {[
+                  {
+                    step: "1",
+                    title: "Contact Details",
+                    description: "Basic contact information",
+                    icon: "📱",
+                    status: "completed",
+                  },
+                  {
+                    step: "2",
+                    title: "Demat Details",
+                    description: "Account preferences",
+                    icon: "📊",
+                    status: "completed",
+                  },
+                  {
+                    step: "3",
+                    title: "Personal Details",
+                    description: "Identity verification",
+                    icon: "👤",
+                    status: "completed",
+                  },
+                  {
+                    step: "4",
+                    title: "Bank Details",
+                    description: "Account verification",
+                    icon: "🏦",
+                    status: "completed",
+                  },
+                  {
+                    step: "5",
+                    title: "Application Details",
+                    description: "Form submission",
+                    icon: "📝",
+                    status: "current",
+                  },
+                  {
+                    step: "6",
+                    title: "E-Sign Details",
+                    description: "Digital signature",
+                    icon: "✍️",
+                    status: "pending",
+                  },
+                  {
+                    step: "7",
+                    title: "KYC Complete",
+                    description: "KYC verified",
+                    icon: "✅",
+                    status: "pending",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex flex-col items-center">
+                    {/* Step Circle */}
                     <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center mb-2 ${
-                        step.completed
-                          ? "bg-blue-600 text-white"
+                      className={`w-16 h-16 rounded-full flex items-center justify-center mb-3 relative z-10 transition-all duration-300 ${
+                        item.status === "completed"
+                          ? "bg-gradient-to-br from-[#FE667C] to-[#FC9A1C] text-white shadow-lg"
+                          : item.status === "current"
+                          ? "bg-gradient-to-br from-[#0023FF] to-[#00b7c2] text-white shadow-lg animate-pulse"
+                          : "bg-gray-200 text-gray-500"
+                      }`}
+                    >
+                      <span className="text-2xl">{item.icon}</span>
+                    </div>
+
+                    {/* Step Number */}
+                    <div
+                      className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mb-2 ${
+                        item.status === "completed"
+                          ? "bg-[#FE667C] text-white"
+                          : item.status === "current"
+                          ? "bg-[#0023FF] text-white"
                           : "bg-gray-300 text-gray-600"
                       }`}
                     >
-                      <Icon className="w-6 h-6" />
+                      {item.step}
                     </div>
-                    <span className="text-sm font-medium text-gray-700 text-center max-w-20">
-                      {step.label}
-                    </span>
 
-                    {index < kycSteps.length - 1 && (
-                      <div className="hidden lg:block absolute">
-                        <div
-                          className={`w-12 h-0.5 transform translate-x-16 -translate-y-8 ${
-                            step.completed ? "bg-blue-600" : "bg-gray-300"
-                          }`}
-                        ></div>
-                      </div>
-                    )}
+                    {/* Step Title */}
+                    <h3
+                      className={`font-semibold text-sm text-center mb-1 ${
+                        item.status === "completed"
+                          ? "text-[#FE667C]"
+                          : item.status === "current"
+                          ? "text-[#0023FF]"
+                          : "text-gray-500"
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
+
+                    {/* Step Description */}
+                    <p className="text-xs text-gray-500 text-center leading-tight">
+                      {item.description}
+                    </p>
                   </div>
-                );
-              })}
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="bg-[#f9fafb] border border-[#e5e7eb] rounded-xl p-6 sm:p-8 shadow-md">
-            <h3 className="text-center text-2xl sm:text-5xl font-secondary text-[#e11d48] tracking-wide mb-6 uppercase">
-              KYC Approval Time
-            </h3>
+          {/* KYC Approval Time Section */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl md:text-4xl font-bold font-secondary text-gray-800 mb-4">
+                KYC <span className="text-[#FE667C]">APPROVAL TIME</span>
+              </h3>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#FE667C] to-[#FC9A1C] mx-auto rounded-full"></div>
+            </div>
 
-            <div className="space-y-5 text-[15px] sm:text-[16px] leading-relaxed text-gray-800">
-              <p>
-                Your account with{" "}
-                <strong>
-                  Aionion Capital Market Services Private Limited (ACMSPL)
-                </strong>{" "}
-                will typically be activated within <strong>72 hours</strong>
-                —provided your KYC is verified and all submitted documents are
-                in order.
-              </p>
-              <div className="bg-white border-l-4 border-[#e11d48] p-4 rounded-md shadow-sm">
-                <p className="text-sm text-gray-700">
-                  If you are opening an ACMSPL account for the first time or
-                  updating your KYC details during the process, the information
-                  must be verified by the{" "}
-                  <strong>KYC Registration Agency (KRA)</strong> as per{" "}
-                  <strong>SEBI guidelines</strong>. This may take up to 72 hours
-                  and could delay account activation slightly.
-                </p>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Left Side - Main Info */}
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border-l-4 border-[#0023FF]">
+                  <h4 className="text-xl font-bold text-gray-800 mb-3">
+                    ⚡ Quick Activation
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    Your account with{" "}
+                    <strong>
+                      Aionion Capital Market Services Private Limited
+                    </strong>{" "}
+                    will typically be activated within{" "}
+                    <span className="text-[#FE667C] font-bold text-lg">
+                      72 hours
+                    </span>
+                    —provided your KYC is verified and all submitted documents
+                    are in order.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-xl border-l-4 border-green-500">
+                  <h4 className="text-xl font-bold text-gray-800 mb-3">
+                    📋 Document Verification
+                  </h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    We ensure all your documents are properly verified according
+                    to SEBI guidelines for your security and compliance.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Side - Important Notice */}
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl border border-orange-200">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-white text-sm font-bold">!</span>
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-800">
+                    Important Notice
+                  </h4>
+                </div>
+
+                <div className="space-y-4 text-gray-700">
+                  <p className="leading-relaxed">
+                    If you are opening an ACMSPL account for the first time or
+                    updating your KYC details, the information needs to be
+                    verified by the{" "}
+                    <strong className="text-[#0023FF]">
+                      KYC Registration Agency (KRA)
+                    </strong>{" "}
+                    in line with SEBI guidelines.
+                  </p>
+
+                  <div className="bg-white p-4 rounded-lg border border-orange-200">
+                    <p className="text-sm">
+                      <strong className="text-orange-600">
+                        ⏱️ KRA Verification Time:
+                      </strong>{" "}
+                      This verification can take up to{" "}
+                      <span className="font-bold text-[#FE667C]">72 hours</span>
+                      , which may slightly delay the account activation.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
