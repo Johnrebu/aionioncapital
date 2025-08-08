@@ -170,6 +170,13 @@
 // }
 import Header from "@/components/layout/Header";
 
+const toSlug = (text: string): string =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
 export default function Privacy() {
   const privacyPolicy = [
     {
@@ -212,7 +219,12 @@ Data required to provide the services you request, including trading preferences
     {
       heading: "Rights of Data Subject",
       rights: [
-        "Under the Digital Personal Data Protection Act, 2023, you have the following rights concerning your personal data:",
+        "Right to Access: You have the right to access the personal data we hold about you.",
+        "Right to Correction: If your personal data is inaccurate or incomplete, you have the right to request that we correct or update it.",
+        "Right to Erasure: You may request the deletion of your personal data when it is no longer necessary for the purposes for which it was collected or when you withdraw consent.",
+        "Right to Data Portability: You have the right to request that your personal data be provided in a structured, commonly used, and machine-readable format.",
+        "Right to Object: You have the right to object to the processing of your personal data for specific purposes, such as direct marketing.",
+        "To exercise any of these rights, please contact us at contactus@aionioncapital.com.",
       ],
     },
     {
@@ -270,137 +282,205 @@ Data required to provide the services you request, including trading preferences
     },
   ];
 
+  const sections = privacyPolicy.map((s) => ({
+    id: toSlug(s.heading),
+    label: s.heading,
+  }));
+
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div id="top" className="font-[family-name:var(--font-geist-sans)]">
       <Header />
 
       <div className="bg-[url('/privacy/privacybg.png')] bg-cover bg-center bg-no-repeat xl:h-[55vh] h-[45vh] w-full" />
 
       <div className="bg-white py-10 px-4 sm:px-8 md:px-16 xl:px-60">
-        <div className="max-w-[900px] mx-auto bg-[#f5f5f5] shadow-md px-6 sm:px-10 pt-5 pb-10 -mt-32">
-          <h2 className="text-[#FC9A1C] font-secondary font-medium text-[3rem] uppercase text-center mb-1">
-            Privacy Policy
-          </h2>
+        <div className="max-w-[1200px] mx-auto -mt-32">
+          {/* Mobile quick nav */}
+          <div className="lg:hidden mb-4 overflow-x-auto">
+            <div className="flex gap-3 whitespace-nowrap">
+              {sections.map((s) => (
+                <a
+                  key={s.id}
+                  href={`#${s.id}`}
+                  className="text-[13px] px-3 py-2 rounded-full border bg-white shadow-sm text-black hover:text-[#FE667C]"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </div>
 
-          <p className="text-black text-[13px] mb-5 leading-relaxed">
-            Website: www.aionioncapital.com (http://www.aionioncapital.com)
-            (hereinafter referred to as the “Website”) is owned and operated by
-            Aionion Capital Market Services Private Limited, a company
-            incorporated under the Companies Act, 1956, with its registered
-            office located at 3rd Floor, Meerlan Towers, No.33, Hanumantha Road,
-            Royapettah, Chennai - 600014 (hereinafter referred to as "Aionion
-            Capital") <br />
-            <br />
-            For the purposes of this Privacy Policy, wherever the context
-            requires, the term “You” or “User” refers to any natural or legal
-            person, including online and offline clients, and the terms “We,”
-            “Us,” or “Our” refer to Aionion Capital.
-          </p>
-
-          {privacyPolicy.map((e, i) => (
-            <div key={i} className="mb-5">
-              <div className="border-l-4 border-[#FC9A1C] pl-4 mb-3">
-                <h2 className="text-black text-[16px] font-bold">
-                  {i + 1}. {e.heading}
-                </h2>
-              </div>
-
-              {/* Rights Section */}
-              {e.rights && (
-                <div className="space-y-2 text-[14px] text-black">
-                  {e.rights.map((right, j) => (
-                    <div
-                      key={j}
-                      className="border-l-4 border-[#FC9A1C] pl-4 py-1 bg-white shadow-sm rounded-sm"
-                    >
-                      <span className="font-semibold text-[#FC9A1C] mr-2">
-                        
-                      </span>
-                      {right}
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Contact Section */}
-              {e.contact && (
-                <div className="grid sm:grid-cols-2 gap-4 text-[14px] text-black">
-                  <div className="border p-4 rounded-md bg-white shadow-sm">
-                    <h4 className="font-semibold text-[#FC9A1C] mb-2">
-                      Compliance Officer
-                    </h4>
-                    <p>{e.contact.officer.name}</p>
-                    <p>
-                      Email:{" "}
-                      <a
-                        href={`mailto:${e.contact.officer.email}`}
-                        className="text-blue-600"
-                      >
-                        {e.contact.officer.email}
-                      </a>
-                    </p>
-                  </div>
-
-                  <div className="border p-4 rounded-md bg-white shadow-sm">
-                    <h4 className="font-semibold text-[#FC9A1C] mb-2">
-                      Registered Office
-                    </h4>
-                    {e.contact.address.map((line, index) => (
-                      <p key={index}>{line}</p>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Description Text */}
-              {e.description &&
-                !e.typesOfCookies &&
-                e.description.split("\n").map((line, index) => (
-                  <p
-                    key={index}
-                    className={`text-black text-[14px] leading-relaxed ${
-                      index === 0 ? "mt-1" : "mt-2"
-                    }`}
-                  >
-                    {line.trim()}
-                  </p>
-                ))}
-
-              {/* Personal Info */}
-              {e.personalInformation && (
-                <>
-                  <h4 className="text-black text-[16px] font-semibold mt-5 mb-1">
-                    Personal Information:
-                  </h4>
-                  <ul className="pl-5 list-disc text-black text-[14px] space-y-1">
-                    {e.personalInformation.split("\n").map((line, index) => (
-                      <li key={index}>{line.trim()}</li>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* TOC */}
+            <aside className="hidden lg:block lg:col-span-3">
+              <div className="sticky top-6 bg-white border rounded-lg shadow-sm p-4">
+                <div className="text-black font-semibold mb-2">On this page</div>
+                <nav>
+                  <ul className="space-y-2 text-[14px]">
+                    {sections.map((s, idx) => (
+                      <li key={s.id}>
+                        <a
+                          href={`#${s.id}`}
+                          className="text-black hover:text-[#FE667C]"
+                        >
+                          {idx + 1}. {s.label}
+                        </a>
+                      </li>
                     ))}
                   </ul>
-                </>
-              )}
+                </nav>
+              </div>
+            </aside>
 
-              {/* Cookies Section */}
-              {e.typesOfCookies && (
-                <div className="mt-4">
-                  <p className="text-black text-[14px] mb-4">{e.description}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-black text-[14px]">
-                    {e.typesOfCookies.map((cookie, index) => (
-                      <div
-                        key={index}
-                        className="border border-gray-300 rounded-lg p-3 bg-white shadow-sm h-full"
-                      >
-                        <h4 className="font-semibold text-[#FC9A1C] mb-1">
-                          {cookie.title}
-                        </h4>
-                        <p>{cookie.content}</p>
+            {/* Main content */}
+            <main className="lg:col-span-9">
+              <div className="bg-[#f5f5f5] shadow-md px-6 sm:px-10 pt-5 pb-10">
+                <h1 className="text-[#FC9A1C] font-secondary font-medium text-[2.2rem] sm:text-[3rem] uppercase text-center mb-1">
+                  Privacy Policy
+                </h1>
+                <p className="text-center text-[12px] text-[#6b7280] mb-4">Last updated: August 2025</p>
+
+                <p className="text-black text-[13px] mb-5 leading-relaxed">
+                  Website: www.aionioncapital.com (http://www.aionioncapital.com)
+                  (hereinafter referred to as the “Website”) is owned and operated by
+                  Aionion Capital Market Services Private Limited, a company
+                  incorporated under the Companies Act, 1956, with its registered
+                  office located at 3rd Floor, Meerlan Towers, No.33, Hanumantha Road,
+                  Royapettah, Chennai - 600014 (hereinafter referred to as "Aionion
+                  Capital") <br />
+                  <br />
+                  For the purposes of this Privacy Policy, wherever the context
+                  requires, the term “You” or “User” refers to any natural or legal
+                  person, including online and offline clients, and the terms “We,”
+                  “Us,” or “Our” refer to Aionion Capital.
+                </p>
+
+                {privacyPolicy.map((e, i) => {
+                  const sectionId = toSlug(e.heading);
+                  const cookieCards = Array.isArray(e.typesOfCookies)
+                    ? e.typesOfCookies.filter((c: any) => c.title)
+                    : [];
+                  const cookieFootnote = Array.isArray(e.typesOfCookies)
+                    ? e.typesOfCookies.find((c: any) => !c.title)?.content
+                    : undefined;
+
+                  return (
+                    <section key={i} id={sectionId} className="mb-7 scroll-mt-24">
+                      <div className="border-l-4 border-[#FC9A1C] pl-4 mb-3">
+                        <h2 className="text-black text-[16px] font-bold">
+                          {i + 1}. {e.heading}
+                        </h2>
                       </div>
-                    ))}
-                  </div>
+
+                      {/* Rights Section */}
+                      {e.rights && (
+                        <ul className="text-[14px] text-black list-disc pl-5 space-y-2">
+                          {e.rights.map((right: string, j: number) => (
+                            <li key={j}>{right}</li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Contact Section */}
+                      {e.contact && (
+                        <div className="grid sm:grid-cols-2 gap-4 text-[14px] text-black">
+                          <div className="border p-4 rounded-md bg-white shadow-sm">
+                            <h4 className="font-semibold text-[#FC9A1C] mb-2">
+                              Compliance Officer
+                            </h4>
+                            <p>{e.contact.officer.name}</p>
+                            <p>
+                              Email:{" "}
+                              <a
+                                href={`mailto:${e.contact.officer.email}`}
+                                className="text-blue-600"
+                              >
+                                {e.contact.officer.email}
+                              </a>
+                            </p>
+                          </div>
+
+                          <div className="border p-4 rounded-md bg-white shadow-sm">
+                            <h4 className="font-semibold text-[#FC9A1C] mb-2">
+                              Registered Office
+                            </h4>
+                            {e.contact.address.map((line: string, index: number) => (
+                              <p key={index}>{line}</p>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Description Text */}
+                      {e.description && !e.typesOfCookies && (
+                        <div>
+                          {e.description.split("\n").map((line: string, index: number) => (
+                            <p
+                              key={index}
+                              className={`text-black text-[14px] leading-relaxed ${
+                                index === 0 ? "mt-1" : "mt-2"
+                              }`}
+                            >
+                              {line.trim()}
+                            </p>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Personal Info */}
+                      {e.personalInformation && (
+                        <div>
+                          <h4 className="text-black text-[16px] font-semibold mt-5 mb-1">
+                            Personal Information:
+                          </h4>
+                          <ul className="pl-5 list-disc text-black text-[14px] space-y-1">
+                            {e.personalInformation
+                              .split("\n")
+                              .map((line: string, index: number) => (
+                                <li key={index}>{line.trim()}</li>
+                              ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Cookies Section */}
+                      {Array.isArray(e.typesOfCookies) && (
+                        <div className="mt-4">
+                          <p className="text-black text-[14px] mb-4">{e.description}</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-black text-[14px]">
+                            {cookieCards.map((cookie: any, index: number) => (
+                              <div
+                                key={index}
+                                className="border border-gray-300 rounded-lg p-3 bg-white shadow-sm h-full"
+                              >
+                                {cookie.title && (
+                                  <h4 className="font-semibold text-[#FC9A1C] mb-1">
+                                    {cookie.title}
+                                  </h4>
+                                )}
+                                <p>{cookie.content}</p>
+                              </div>
+                            ))}
+                          </div>
+                          {cookieFootnote && (
+                            <p className="text-black text-[13px] mt-3 italic">
+                              {cookieFootnote}
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </section>
+                  );
+                })}
+
+                <div className="mt-8 text-right">
+                  <a href="#top" className="text-[13px] text-[#FE667C] underline">
+                    Back to top
+                  </a>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            </main>
+          </div>
         </div>
       </div>
     </div>

@@ -191,8 +191,8 @@ export default function Resources() {
         </div>
         {/* 1st section */}
         <div className="p-10 xl:bg-[#F5F5F5] bg-[#E8E8E8] flex justify-center">
-          <div className="text-center">
-            <div className="font-medium uppercase font-secondary leading-[3.3rem] text-[3rem] text-[#505050]">
+          <div className="text-center max-w-6xl mx-auto">
+            <div className="font-medium uppercase font-secondary leading-[3.3rem] text-[3rem] text-[#505050] mb-8">
               {" "}
               <span className="text-[#FE667C]">Links</span> To{" "}
               <br className="xl:hidden lg:hidden md:hidden" /> Download forms
@@ -204,20 +204,25 @@ export default function Resources() {
               veniam, quis nostrud exercitation ullamco Lorem ipsum dolor sit
               amet
             </div> */}
-            <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 gap-5 mt-10 xl:px-50 grid-cols-1">
+            <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 gap-6 mt-10 px-4 sm:px-8 lg:px-16">
               {downloadLinks.map((e, index) => (
                 <div
                   key={index}
                   onClick={() => {
                     handleDownload(e.link, e.name + ".pdf");
                   }}
-                  className="bg-[#FFFFFF] p-5 flex justify-between gap-5 xl:flex-row flex-col cursor-pointer"
+                  className="bg-[#FFFFFF] p-6 flex justify-between gap-4 xl:flex-row flex-col cursor-pointer hover:shadow-md transition-shadow duration-200 rounded-sm"
                 >
-                  <div className="text-left">
-                    <h3 className="font-bold text-sm text-[#484848] uppercase">
+                  <div className="text-left flex-1">
+                    <h3 className="font-bold text-sm text-[#484848] uppercase leading-relaxed">
                       {e.name}
                     </h3>
                     {/* <p className="text-[#000000] lowercase">{e.content}</p> */}
+                  </div>
+                  <div className="flex-shrink-0 flex items-center">
+                    <svg className="w-5 h-5 text-[#FE667C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                   </div>
                 </div>
               ))}
