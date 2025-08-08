@@ -620,7 +620,7 @@ export default function DematAccount() {
               <h3 className="text-3xl md:text-4xl font-bold font-secondary text-gray-800 mb-4">
                 KYC <span className="text-[#FE667C]">APPROVAL TIME</span>
               </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-[#FE667C] to-[#FC9A1C] mx-auto rounded-full"></div>
+              
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 items-center">

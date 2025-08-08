@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex justify-between gap-3 items-center bg-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group-hover:scale-105">
+                <div className="flex justify-between gap-3 items-center bg-white px-5 py-1 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group-hover:scale-105">
                   <Image
                     src="/footericon/play.svg"
                     alt="Google Play"
@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="flex justify-between gap-3 items-center bg-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group-hover:scale-105">
+                <div className="flex justify-between gap-3 items-center bg-white px-5 py-1 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 group-hover:scale-105">
                   <AppleIcon className="text-gray-900 w-7 h-7" />
                   <div>
                     <h3 className="text-gray-600 text-[10px] font-bold">
