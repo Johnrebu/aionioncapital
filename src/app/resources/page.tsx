@@ -266,14 +266,14 @@ export default function Resources() {
                     height={80}
                   />
                 </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1 border-l-4 border-[#FE667C]">
                   <h2 className="text-xl font-bold text-gray-900 mb-1">
                     STEP 1
                   </h2>
                   <p className="text-gray-700 text-xs">
                     If you have any complaints or concerns, please email{" "}
-                    <span className="text-blue-600">
-                      grievances@aloniocognital.com
+                    <span className="text-[#FE667C] font-semibold">
+                      grievances@aionioncapital.com
                     </span>
                     . Kindly provide a detailed description of the issue,
                     including the date, time, persons contacted, actions taken,
@@ -292,14 +292,14 @@ export default function Resources() {
                     height={80}
                   />
                 </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1 border-l-4 border-[#0023FF]">
                   <h2 className="text-xl font-bold text-gray-900 mb-1">
                     STEP 2
                   </h2>
                   <p className="text-gray-700 text-xs">
                     Upon receiving your email, you will automatically receive a
-                    reply with a Ticket ID/Complaint Reference Number. Our team
-                    aims to respond within 36 hours. Please note that the
+                    reply with a <span className="font-semibold text-[#0023FF]">Ticket ID/Complaint Reference Number</span>. Our team
+                    aims to respond within <span className="font-semibold text-[#0023FF]">36 hours</span>. Please note that the
                     response time may vary based on the nature of your
                     complaint. You can check the status of your complaint at any
                     time by sending an email with your Ticket ID/Complaint
@@ -318,7 +318,7 @@ export default function Resources() {
                     height={80}
                   />
                 </div>
-                <div className="bg-white p-3 rounded-lg shadow-sm flex-1">
+                <div className="bg-white p-3 rounded-lg shadow-sm flex-1 border-l-4 border-[#FC9A1C]">
                   <h2 className="text-xl font-bold text-gray-900 mb-1">
                     STEP 3
                   </h2>
@@ -327,21 +327,21 @@ export default function Resources() {
                     a complaint with SEBI through their SCORES portal at{" "}
                     <a
                       href="https://scores.sebi.gov.in/fmain-content"
-                      className="text-blue-600 hover:underline"
+                      className="text-[#0023FF] hover:text-[#FE667C] font-semibold"
                     >
                       https://scores.sebi.gov.in/fmain-content
                     </a>{" "}
                     or with the Exchange via{" "}
                     <a
                       href="https://investorhelpline.neehrida.com/NICEPLUS"
-                      className="text-blue-600 hover:underline"
+                      className="text-[#0023FF] hover:text-[#FE667C] font-semibold"
                     >
                       https://investorhelpline.neehrida.com/NICEPLUS
                     </a>{" "}
                     or{" "}
                     <a
                       href="https://bseers.beehrida.com/ecomplaint/firminvestorHome.aspx"
-                      className="text-blue-600 hover:underline"
+                      className="text-[#0023FF] hover:text-[#FE667C] font-semibold"
                     >
                       https://bseers.beehrida.com/ecomplaint/firminvestorHome.aspx
                     </a>
@@ -353,7 +353,7 @@ export default function Resources() {
                     Portal at{" "}
                     <a
                       href="https://smartlogin.login"
-                      className="text-blue-600 hover:underline"
+                      className="text-[#0023FF] hover:text-[#FE667C] font-semibold"
                     >
                       https://smartlogin.login
                     </a>
