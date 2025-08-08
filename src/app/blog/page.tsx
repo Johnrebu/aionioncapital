@@ -247,33 +247,40 @@ export default function BlogPage() {
   };
 
   return (
-    <main className="bg-white text-black">
+    <main className="bg-gradient-to-br from-gray-50 to-white text-black">
       <Header />
 
-      {/* Banner */}
+      {/* Enhanced Banner */}
       <section
-        className="w-full py-20 text-center"
+        className="w-full py-16 text-center relative overflow-hidden"
         style={{
           backgroundImage: "url(/about/aboutbg.png)",
           backgroundPosition: "center top",
           backgroundSize: "cover",
         }}
       >
-        <h1 className="text-white text-5xl xl:text-6xl font-secondary uppercase">
-          Blog
-        </h1>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10">
+          <h1 className="text-white text-5xl xl:text-6xl font-secondary uppercase mb-2 drop-shadow-lg">
+            Blog
+          </h1>
+          <p className="text-white/90 text-lg max-w-2xl mx-auto px-4">
+            Expert insights on markets, investments, and financial strategies
+          </p>
+        </div>
       </section>
 
-      {/* Category Filter */}
-      <nav className="max-w-6xl mx-auto px-4 pt-8 flex flex-wrap gap-2 justify-center">
+      {/* Enhanced Category Filter */}
+      <nav className="max-w-6xl mx-auto px-4 pt-6 pb-4 flex flex-wrap gap-3 justify-center">
         {categories.map((category) => (
           <button
             key={category}
             onClick={() => handleCategoryChange(category)}
-            className={`px-4 py-2 rounded-full text-xl font-secondary border ${
+            className={`px-5 py-2.5 rounded-full text-lg font-secondary border-2 transition-all duration-200 transform hover:scale-105 ${
               selectedCategory === category
-                ? "bg-black text-white"
-                : "bg-white text-black hover:bg-gray-200"
+                ? "bg-[#FE667C] text-white border-[#FE667C] shadow-lg"
+                : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50 hover:border-[#FE667C]/50"
             }`}
           >
             {category}
@@ -281,7 +288,7 @@ export default function BlogPage() {
         ))}
       </nav>
 
-      {/* Blog Sections */}
+      {/* Enhanced Blog Sections */}
       {blogData
         .filter(
           (section) =>
@@ -291,7 +298,7 @@ export default function BlogPage() {
         .map((section) => (
           <section
             key={section.category}
-            className="py-10 px-4 max-w-6xl mx-auto"
+            className="py-8 px-4 max-w-6xl mx-auto"
           >
             <Link
               href={`?category=${encodeURIComponent(section.category)}`}
@@ -299,36 +306,65 @@ export default function BlogPage() {
                 e.preventDefault();
                 handleCategoryChange(section.category);
               }}
-              className="text-4xl font-secondary text-[#FE667C] mb-6 border-l-4 border-[#FBAD00] pl-4 block hover:text-blue-600 transition-colors duration-200"
+              className="text-3xl font-secondary text-[#FE667C] mb-6 border-l-4 border-[#FC9A1C] pl-4 block hover:text-[#0023FF] transition-colors duration-200 flex items-center gap-3"
             >
               {section.category}
+              <div className="w-8 h-0.5 bg-gradient-to-r from-[#FE667C] to-[#FC9A1C] rounded-full"></div>
             </Link>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {section.articles.map((article, idx) => (
                 <article
                   key={`${article.slug}-${idx}`}
-                  className="border rounded-xl p-6 shadow-sm hover:shadow transition bg-white"
+                  className="border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 bg-white hover:border-[#FE667C]/30 group"
                 >
-                  <Link
-                    href={`/blog/${article.slug}`}
-                    className="text-xl font-semibold text-[#2B3640] hover:text-blue-600 transition-colors duration-200 block mb-2"
-                  >
-                    {article.title}
-                  </Link>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <Link
+                        href={`/blog/${article.slug}`}
+                        className="text-xl font-semibold text-[#2B3640] hover:text-[#FE667C] transition-colors duration-200 block mb-2 group-hover:text-[#FE667C]"
+                      >
+                        {article.title}
+                      </Link>
 
-                  <p className="text-sm text-gray-500 mb-2">
-                    {article.date} • {article.author}
-                  </p>
-                  <p className="text-base text-gray-700 mb-4">
-                    {article.excerpt}
-                  </p>
-                  <Link
-                    href={`/blog/${article.slug}`}
-                    className="inline-block text-blue-600 font-semibold hover:underline"
-                  >
-                    Read More →
-                  </Link>
+                      <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
+                        <span className="flex items-center gap-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          {article.date}
+                        </span>
+                        <span>•</span>
+                        <span className="font-medium text-[#FE667C] flex items-center gap-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                          {article.author}
+                        </span>
+                      </div>
+                      
+                      <p className="text-base text-gray-700 mb-4 leading-relaxed">
+                        {article.excerpt}
+                      </p>
+                      
+                      <Link
+                        href={`/blog/${article.slug}`}
+                        className="inline-flex items-center gap-2 text-[#FE667C] font-semibold hover:text-[#0023FF] transition-colors duration-200 group-hover:gap-3"
+                      >
+                        Read More
+                        <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="flex-shrink-0">
+                      <span className="px-3 py-1 bg-gradient-to-r from-[#FE667C]/10 to-[#FC9A1C]/10 text-[#FE667C] text-xs font-medium rounded-full border border-[#FE667C]/20">
+                        {section.category}
+                      </span>
+                    </div>
+                  </div>
                 </article>
               ))}
             </div>
